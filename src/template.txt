@@ -1,0 +1,13 @@
+# two simple blocks...
+# name load_addr  copy_addr  ram_bank  compressed?
+9
+rwks_logo.scr	32768 16384 0 1
+loading.scr	32768 16384 0 1
+sprites.bin 	32768 51200 1 1
+ram3.bin	32768 49152 3 0
+ram4.bin	32768 49152 4 0
+ram0.bin	32768 49152 0 1
+ram6.bin	32768 49152 6 1
+test.bin 	24600 24600 0 0
+engine.bin 	33025 33025 0 0
+24600

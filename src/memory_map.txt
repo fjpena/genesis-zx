@@ -1,0 +1,71 @@
+﻿Main memory
+-----------
+
+			Start   End	Size	Name				Compressed?	Comments
+				24599	??	Stack
+			24600	$7FFF	8168	Main logic			NO
+			$8000	$8100	257	IM2 table					Runtime
+			$8101	$89FF	2302	Engine				NO
+			$8A00	$8A55	86	LRU_prev					Runtime
+			$8A56		1	Available
+			$8A57	$8A86	48	stars_pixels					Runtime
+			$8A87	$8A89	3	Available
+			$8A8A	$8AA5	27	Interrupt basic routine				Runtime	
+			$8AA6	$8AFF	90	Available	
+			$8B00	$8B55	86	LRU_next					Runtime
+			$8B56	$8BFF	170	Cache mapping					Runtime	
+			$8C00	$8FFF	1024	Cache sprites					Runtime
+			$9000	$9FFF	4096	Sprites from level (cache)			Runtime
+			$A000	$AFFF	4096	Level map					Runtime
+			$B000	$BFFF	4096	Preshifted level tiles				Runtime
+
+
+			
+RAM 0
+-----		
+			Start   End	Size	Name				Compressed?	Comments
+
+			- WYZ player, music
+			
+RAM 1
+-----		
+			Start   End	Size	Name				Compressed?	Comments
+			
+			- Sprites (up to 16 of sprites!)
+
+			$C000 	$C7FF	2048	Current level sprites		NO		Realtime
+			$c800	$FFFF	14336	Total sprites (up to 448 sprites)	YES
+
+RAM 3
+-----			
+			Start   End	Size	Name				Compressed?	Comments
+		
+			- Static screen$
+
+			$C000	C23B	572	background.bin		YES
+			.....
+
+	
+RAM 4
+-----			
+			Start   End	Size	Name				Compressed?	Comments
+			
+			- Game levels
+
+			$C000	$F7FF	14336 (max) Game levels 	YES
+			$F800	$FFFF	2048	enemy_locations		NO		Realtime, up to 256 enemies per level
+
+
+RAM 6
+-----
+			Start   End	Size	Name				Compressed?	Comments
+
+			- Main menu
+
+			$C000	$DFFF	8192	Main menu			YES
+			$E000	$EFFF	4096	Movement		
+			$F000	$FFFF	4096	Behavior		
+			
+RAM 7:
+------
+			- Shadow display

@@ -1,0 +1,32 @@
+all: genesis.dsk
+
+genesis.dsk: test.bin engine.bin sprites.bin.cmp ram3.bin ram4.bin ram0.bin.cmp ram6.bin.cmp rwks_logo.bin intro.bin.zxb loading.bin diskload.bin.zxb
+	cat loading.bin sprites.bin.cmp ram3.bin ram4.bin ram0.bin.cmp ram6.bin.cmp test.bin engine.bin > genesis.bin
+	mkp3fs -180 genesis.dsk diskload.bin.zxb genesis.bin intro.bin.zxb
+
+diskload.bin.zxb: diskload.bin
+	specform diskload.bin
+
+intro.bin.zxb: intro.bin
+	specform intro.bin
+
+diskload.bin: diskload.asm
+	pasmo diskload.asm diskload.bin	
+
+intro.bin: ProPlay37a_intro.asm
+	pasmo ProPlay37a_intro.asm intro.bin
+
+rwks_logo.bin: rwks_logo.scr
+	apack rwks_logo.scr rwks_logo.bin
+
+loading.bin: loading.scr
+	apack loading.scr loading.bin
+
+ram0.bin.cmp: ram0.bin
+	apack ram0.bin ram0.bin.cmp
+
+ram6.bin.cmp: ram6.bin
+	apack ram6.bin ram6.bin.cmp
+
+sprites.bin.cmp: sprites.bin
+	apack sprites.bin sprites.bin.cmp
